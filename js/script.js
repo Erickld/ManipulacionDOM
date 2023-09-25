@@ -69,49 +69,35 @@ const users = [
 
 const CARD_SECTION = document.getElementById('profiles');
 
-const createCard = () => {
+const setInfoUser = (usuariox) => {
+
     const card = document.createElement('div');
     card.classList.add('profile', 'container');
-    return card;
-}
 
-const createDecription = () => {
     const userElements = {
         user_name: document.createElement('h2'),
         age: document.createElement('h3'),
         description: document.createElement('p'),
+        bandsList: document.createElement('ul'),
         bands: []
-    }
-    return userElements;
-}
-
-
-const populateElements = (user, userElements) => {
-    userElements.user_name.textContent = user.user_name;
-    userElements.age.textContent = user.age + ' years old';
-    userElements.description.textContent = user.description;
-
-    const bandList = user.fav_music.bands.map(e => {
-        const pElement = document.createElement('p');
-        pElement.textContent = e;
-        return pElement;
+    };
+    
+    userElements.user_name.textContent = usuariox.user_name;
+    userElements.age.textContent = usuariox.age + ' years old';
+    userElements.description.textContent = usuariox.description;
+    usuariox.fav_music.bands.forEach(bandTxt => {
+        const liElement = document.createElement('li');
+        liElement.textContent = bandTxt;
+        userElements.bandsList.appendChild(liElement);
     });
 
-    userElements.bands = bandList;
-    return userElements;
-}
-
-const rederedElements = (card, elements) => {
-    card.append(elements.user_name, elements.age, elements.description);
+    card.append(userElements.user_name, userElements.age, userElements.description, userElements.bandsList);
     return card;
 }
 
 users.forEach(user => {
-    const card = createCard();
-    const userElements = createDecription();
-    const elementWithData = populateElements(user, userElements);
-    const renderElements = rederedElements(card, elementWithData);
-    CARD_SECTION.appendChild(renderElements);
+    const card = setInfoUser(user);
+    CARD_SECTION.appendChild(card);
 })
 
 

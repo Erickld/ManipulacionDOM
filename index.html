@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manipulación del DOM</title>
+        <!-- async: descarga del JS a la par del analisis del HTML -->
+        <!-- defer: ejecuta el JS despues de analizar todo el HTML -->
+        <script src="./js/script.js" async defer></script>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    <!-- EL DOM se forma con Nodos y Aristas -->
+    <body>
+        <div class="main container">
+            <h1 id="title1">Manipulación del DOM</h1>
+            <h2 class="subtitulo">Eventos</h2>
+            <h3 class="subtitulo">DM + JS</h3>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="username" value="">
+            <button id="profileBtn">Actualizar perfil</button>
+            <!--input placeholder="Age" type="number" id="user-age" name="age" value="">
+            <input placeholder="Email address" type="text" id="name" name="user-mail" value=""-->
+        </div>
+
+        <div class="profile container">
+            <h2 id="username"></h2>
+            <h3 id="age"></h3>
+            <p id="mail"></p>
+            <ul id="fav-films"></ul>
+        </div>
+
+        <div id="profiles">
+
+        </div>
+
+    </body>
+</html>

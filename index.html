@@ -15,11 +15,19 @@
             <h1 id="title1">Manipulación del DOM</h1>
             <h2 class="subtitulo">Eventos</h2>
             <h3 class="subtitulo">DM + JS</h3>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="username" value="">
-            <button id="profileBtn">Actualizar perfil</button>
-            <!--input placeholder="Age" type="number" id="user-age" name="age" value="">
-            <input placeholder="Email address" type="text" id="name" name="user-mail" value=""-->
+            <!-- Username -->
+            <label for="name">User Name</label>
+            <input type="text" id="name" name="username" value="" required>
+            <!-- User age -->
+            <br>
+            <label for="user-age">User age</label>
+            <input type="number" id="user-age" name="age" value="" required min="0">
+            <!-- User email -->
+            <br>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="user-mail" value="" required>
+            <br>
+            <button id="profileBtn">Add User</button>
         </div>
 
         <div class="profile container">

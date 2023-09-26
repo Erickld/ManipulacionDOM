@@ -39,8 +39,8 @@ function createUser(user) {
 createUser(user);
 
 
-///-----------------CON MULTIPLES USUARIOS---------------->
-///------------------------------------------------------->
+///-------AÑADIENDO MULTIPLES USUARIOS PREESTABLECIDOS---------------->
+///------------------------------------------------------------------->
 
 const users = [
     {
@@ -101,15 +101,59 @@ users.forEach(user => {
 })
 
 
-/*
-//inputs
-const inputName = document.getElementById('name');
-//seccion donde se miestra el nombre del usuario
-const userName = document.getElementById('username');
+//-----------AÑADIENDO NUEVOS USUARIOS CON INPUTS Y BOTON------------->
+///------------------------------------------------------------------->
+const setNewUser = (usuariox) => {
 
-const profileBtn = document.getElementById('profileBtn');
+    const card = document.createElement('div');
+    card.classList.add('profile', 'container');
 
-profileBtn.addEventListener('click', () => {
-    userName.textContent = inputName.value;
+    const userElements = {
+        user_name: document.createElement('h2'),
+        age: document.createElement('h3'),
+        email: document.createElement('p')
+    };
+    
+    userElements.user_name.textContent = usuariox.user_name;
+    userElements.age.textContent = usuariox.age + ' years old';
+    userElements.email.textContent = usuariox.email;
+
+    card.append(userElements.user_name, userElements.age, userElements.email);
+    return card;
+}
+
+
+const addBTN = document.getElementById('profileBtn');
+addBTN.addEventListener('click', () => {
+    //Leer inputs
+    const inputName = document.getElementById('name');
+    const inputAge = document.getElementById('user-age');
+    const inputEmail = document.getElementById('email');
+
+    if (inputName.value == "") {
+        return alert ('Ingresa un nombre de usuario')
+    };
+
+    if (inputAge.value == "" || isNaN(inputAge.value) || inputAge.value <= 0) {
+        return alert ('Ingresa una edad de usuario válida')
+    };
+
+    if (inputEmail.value == "") {
+        return alert ('Ingresa una dirección de correo válida')
+    };
+
+    const newUser = {
+        user_name: inputName.value,
+        age: inputAge.value,
+        email: inputEmail.value
+    };
+
+    const newUserCard = setNewUser(newUser);
+    CARD_SECTION.appendChild(newUserCard);
+
+    inputName.value = "";
+    inputAge.value = "";
+    inputEmail.value = "";
+
+    return alert ('Carta de nuevo usuario agregada correctamente.')
 });
-*/
